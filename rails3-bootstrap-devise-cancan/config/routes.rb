@@ -1,11 +1,16 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+ 
+
+ 
+  root :to => "home#index"
+  devise_for :users
+  resources :users, :only => [:show, :index]
+
   authenticated :user do
     root :to => 'home#index'
   end
 
-  root :to => "home#index"
-
-  devise_for :users
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
